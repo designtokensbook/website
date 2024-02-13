@@ -1,0 +1,38 @@
+---
+import { formatDate } from "@/lib/utils";
+import type { CollectionEntry } from "astro:content";
+
+type Props = CollectionEntry<"workshops">;
+
+const slug = Astro.props.slug;
+const workshop = Astro.props.data;
+---
+
+<article
+  class="group relative rounded-lg border p-6 shadow-md transition-shadow hover:shadow-lg"
+>
+  {
+    workshop.featured && (
+      <span class="absolute right-4 top-4 rounded-full px-3 py-1 text-xs font-medium">
+        Featured
+      </span>
+    )
+  }
+  <div class="flex flex-col justify-between space-y-4">
+    <div class="space-y-2">
+      <h2 class="font-heading text-2xl" transition:name={"title-" + slug}>
+        {workshop.title}
+      </h2>
+      {
+        workshop.description && (
+          <p class="text-muted-foreground" transition:name={"desc-" + slug}>
+            {workshop.description}
+          </p>
+        )
+      }
+    </div>
+  </div>
+  <a href={`/workshops/${slug}/`} class="absolute inset-0">
+    <span class="sr-only">View</span>
+  </a>
+</article>

@@ -1,0 +1,42 @@
+---
+import LinksMenu from "@/components/links-menu.astro";
+import BlogCard from "@/components/cards/links-card.astro";
+import MainLayout from "@/layouts/main-layout.astro";
+import { getLinksByCategory } from "@/lib/fetchers";
+import { capitalizer } from "@/lib/utils";
+import { getCollection } from "astro:content";
+
+export async function getStaticPaths() {
+  return (await getCollection("links")).map((post) => ({
+    params: { category: post.data.category },
+  }));
+}
+
+const { category } = Astro.params;
+
+if (!category) {
+  return new Response(null, {
+    status: 404,
+    statusText: "Not found",
+  });
+}
+
+const links = await getLinksByCategory(category);
+---
+
+<MainLayout
+  title={`${capitalizer(category)} | Liens`}
+  description={`Tous les liens de la section ${category}`}
+>
+  <section class="container py-10">
+    <h1 class="inline-block font-heading text-4xl mb-5">{category}</h1>
+    <div class="flex sm:flex-row flex-initial gap-6">
+      <LinksMenu />
+      <div
+        class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-x-6 gap-y-9 md:gap-y-16 lg:gap-x-8 lg:w-10/12 md:w-9/12"
+      >
+        {links.map((post) => <BlogCard {...post} />)}
+      </div>
+    </div>
+  </section>
+</MainLayout>
