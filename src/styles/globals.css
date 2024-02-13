@@ -1,0 +1,245 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --background: 0 0% 100%;
+    --foreground: 222.2 47.4% 11.2%;
+
+    --muted: 210 40% 96.1%;
+    --muted-foreground: 215.4 16.3% 46.9%;
+
+    --popover: 0 0% 100%;
+    --popover-foreground: 222.2 47.4% 11.2%;
+
+    --border: 214.3 31.8% 91.4%;
+    --input: 214.3 31.8% 91.4%;
+
+    --card: 0 0% 100%;
+    --card-foreground: 222.2 47.4% 11.2%;
+
+    --primary: 222.2 47.4% 11.2%;
+    --primary-foreground: 210 40% 98%;
+
+    --secondary: 210 40% 96.1%;
+    --secondary-foreground: 222.2 47.4% 11.2%;
+
+    --accent: 210 40% 96.1%;
+    --accent-foreground: 222.2 47.4% 11.2%;
+
+    --destructive: 0 100% 50%;
+    --destructive-foreground: 210 40% 98%;
+
+    --ring: 215 20.2% 65.1%;
+
+    --radius: 0.5rem;
+  }
+
+  .dark {
+    --background: 224 71% 4%;
+    --foreground: 213 31% 91%;
+
+    --muted: 223 47% 11%;
+    --muted-foreground: 215.4 16.3% 56.9%;
+
+    --accent: 216 34% 17%;
+    --accent-foreground: 210 40% 98%;
+
+    --popover: 224 71% 4%;
+    --popover-foreground: 215 20.2% 65.1%;
+
+    --border: 216 34% 17%;
+    --input: 216 34% 17%;
+
+    --card: 224 71% 4%;
+    --card-foreground: 213 31% 91%;
+
+    --primary: 210 40% 98%;
+    --primary-foreground: 222.2 47.4% 1.2%;
+
+    --secondary: 222.2 47.4% 11.2%;
+    --secondary-foreground: 210 40% 98%;
+
+    --destructive: 0 63% 31%;
+    --destructive-foreground: 210 40% 98%;
+
+    --ring: 216 34% 17%;
+
+    --radius: 0.5rem;
+  }
+}
+
+@layer base {
+  @font-face {
+    font-family: 'CalSans Semibold';
+    src: url('/fonts/calsans-semibold.woff2') format('woff2');
+    font-weight: normal;
+    font-style: normal;
+    font-display: swap;
+  }
+
+  * {
+    @apply border-border;
+  }
+
+  /* If you want a custom scrollbar - By @diomed */
+  /* * {
+    @apply border-border;
+    --sb-track-color: #ffffff;
+    --sb-thumb-color: #e2e3f1;
+    --sb-size: 10px;
+
+    scrollbar-color: var(--sb-thumb-color) var(--sb-track-color);
+  }
+
+  ::-webkit-scrollbar {
+    width: var(--sb-size)
+  }
+
+  ::-webkit-scrollbar-track {
+    background: var(--sb-track-color);
+    border-radius: 10px;
+  }
+
+  ::-webkit-scrollbar-thumb {
+    background: var(--sb-thumb-color);
+    border-radius: 10px;
+  } */
+
+  html {
+    /* scroll-padding-top: 4rem; */
+    @apply scroll-pt-16 lg:scroll-pt-0;
+  }
+
+  body {
+    @apply bg-background text-foreground font-sans;
+    font-feature-settings: "rlig" 1, "calt" 1;
+  }
+
+  .balance-text {
+    text-wrap: balance;
+  }
+
+  /* Documentation part */
+  .docs-grid-cols-2 {
+    @apply grid grid-cols-1 sm:grid-cols-2 md:grid-cols-1 lg:grid-cols-2 gap-4;
+  }
+
+  .callout>* {
+    @apply my-0 !important;
+  }
+
+  .font-icon-callout {
+    font-family: Apple Color Emoji, Segoe UI Emoji, Segoe UI Symbol;
+  }
+
+  /* MdxComponent: For <code></code> with no parent <pre></pre> */
+  :not(pre)>code {
+    @apply relative rounded border px-[0.3rem] py-[0.2rem] font-mono text-sm bg-background text-foreground;
+  }
+}
+
+.text-gradient_indigo-purple {
+  background: linear-gradient(90deg, #6366f1 0%, rgb(168 85 247 / 0.9) 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.rlc-container {
+  width: 100%;
+  max-width: 800px;
+  margin: 0 auto 2rem;
+
+  text-decoration: none;
+
+  border: 1px solid grey;
+  border-radius: 0.25rem;
+  display: flex;
+  align-items: stretch;
+  justify-content: space-between;
+
+  transition: background 200ms ease-in-out 0s, box-shadow 200ms ease-in-out 0s;
+}
+
+.rlc-container:has(.rlc-image-container) {
+  display: flex;
+  gap: 1rem;
+}
+
+.rlc-container:has(.rlc-image-container) .rlc-info {
+  max-width: 60%;
+}
+
+.rlc-container:hover {
+  box-shadow: 0 4px 5px 2px rgba(80, 80, 80, 0.2);
+}
+
+.rlc-info {
+  width: 100%;
+  padding: 0.5rem;
+}
+
+.rlc-title {
+  font-size: 1.25rem;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.rlc-description {
+  font-size: 0.875rem;
+  overflow: hidden;
+}
+
+.rlc-url-container {
+  display: flex;
+  align-items: center;
+}
+
+.rlc-favicon {
+  margin-right: 4px;
+  width: 16px;
+  height: 16px;
+}
+
+.rlc-url {
+  font-size: 1rem;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  overflow: hidden;
+}
+
+@media screen and (max-width: 800px) {
+  .rlc-image-container {
+    display: none;
+  }
+
+  .rlc-container:has(.rlc-image-container) .rlc-info {
+    max-width: 100%;
+  }
+}
+
+.rlc-image-container {
+  min-height: 100%;
+  min-width: 30%;
+}
+
+.rlc-image {
+  object-fit: cover;
+  object-position: left;
+  height: 100%;
+  min-width: 200px;
+  border-bottom-right-radius: 0.25rem;
+  border-top-right-radius: 0.25rem;
+  margin: 0;
+}
+
+.figma-workshop {
+  border: 1px solid lightgrey;
+  width: 100%;
+  height: 40vh;
+}

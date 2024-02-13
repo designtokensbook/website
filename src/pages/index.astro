@@ -1,0 +1,15 @@
+---
+import { siteConfig } from "@/config/site";
+import MainLayout from "@/layouts/main-layout.astro";
+---
+
+<meta http-equiv="refresh" content="0;URL=/links" />
+<MainLayout title="Design Tokens Book">
+  <section class="space-y-6 pb-12 pt-16 lg:py-28" style="min-height: 100vh">
+    <div
+      class="container flex max-w-[64rem] flex-col items-center gap-5 text-center"
+    >
+      <h1 class="hidden">{siteConfig.description}</h1>
+    </div>
+  </section>
+</MainLayout>

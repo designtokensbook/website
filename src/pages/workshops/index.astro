@@ -1,0 +1,32 @@
+---
+import WorkshopCard from "@/components/cards/workshop-card.astro";
+import DocsPageHeader from "@/components/page-header.astro";
+import DocsLayout from "@/layouts/cases-layout.astro";
+import { getWorkshops } from "@/lib/fetchers";
+
+const workshops = await getWorkshops();
+---
+
+<DocsLayout
+  title="Ateliers"
+  description="Des ateliers pour mettre en place les design tokens dans votre organisation."
+>
+  <section class="container max-w-6xl py-10">
+    <DocsPageHeader
+      heading="Ateliers"
+      text="Des ateliers pour mettre en place les design tokens dans votre organisation."
+    />
+
+    {
+      workshops?.length ? (
+        <div class="grid gap-4 md:grid-cols-2 md:gap-6">
+          {workshops.map((workshop) => (
+            <WorkshopCard {...workshop} />
+          ))}
+        </div>
+      ) : (
+        <p>Aucun atelier pour l'instant</p>
+      )
+    }
+  </section>
+</DocsLayout>

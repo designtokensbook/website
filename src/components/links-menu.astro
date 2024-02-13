@@ -1,0 +1,45 @@
+---
+import { buttonVariants } from "@/components/ui/button";
+import { getCategories } from "@/lib/fetchers";
+import { cn } from "@/lib/utils";
+
+const categories = await getCategories();
+const { category } = Astro.params;
+---
+
+{
+  categories?.length ? (
+    <ul class="flex flex-col flex-auto gap-4 justify-self-end lg:w-2/12 md:w-3/12">
+      <li class="flex-shrink-0">
+        <a
+          href={`/links`}
+          class={cn(
+            !category ? "select-none" : "",
+            buttonVariants({
+              variant: !category ? "default" : "outline",
+            }),
+          )}
+        >
+          Tous les liens
+        </a>
+      </li>
+      {categories.map((item) => (
+        <li class="flex-shrink-0">
+          <a
+            href={`/links/category/${item}`}
+            class={cn(
+              item === category ? "select-none" : "",
+              buttonVariants({
+                variant: item === category ? "default" : "outline",
+              }),
+            )}
+          >
+            {item}
+          </a>
+        </li>
+      ))}
+    </ul>
+  ) : (
+    <div />
+  )
+}

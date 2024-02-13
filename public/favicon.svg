@@ -1,0 +1,11 @@
+<svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
+    <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+        d="m12 21-6.95-3.77A2 2 0 0 1 4 15.48V7.67M12 21l6.95-3.77A2 2 0 0 0 20 15.48V7.67M12 21v-6M4 7.67l7.08-3.69a2 2 0 0 1 1.84 0L20 7.67m-16 0 5.36 2.9M20 7.67l-5.36 2.9M12 15a3 3 0 0 0 2.64-4.43M12 15a3 3 0 0 1-2.64-4.43m5.28 0a3 3 0 0 0-5.28 0" />
+    <style>
+        @media (prefers-color-scheme: dark) {
+            :root {
+                filter: invert(100%);
+            }
+        }
+    </style>
+</svg>

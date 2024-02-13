@@ -1,0 +1,70 @@
+---
+import { MdxComponents } from "@/components/content/mdx-components";
+import DocsSidebarNav from "@/components/layout/sidebar-nav.astro";
+import DocsPageHeader from "@/components/page-header.astro";
+import DocsPager from "@/components/pager.astro";
+import { DashboardTableOfContents } from "@/components/toc";
+import { casesConfig as casesConfig } from "@/config/cases";
+import CasesLayout from "@/layouts/cases-layout.astro";
+import { getTableOfContents } from "@/lib/toc";
+import { getCollection, type CollectionEntry } from "astro:content";
+
+export async function getStaticPaths() {
+  const cases = await getCollection("cases");
+  return cases.map((item) => ({
+    params: { slug: item.slug },
+    props: item,
+  }));
+}
+
+type Props = CollectionEntry<"cases">;
+
+const item = Astro.props;
+const slug = Astro.params.slug;
+const toc = await getTableOfContents(item.body);
+
+const { Content } = await item.render();
+
+if (!slug || !item) {
+  return new Response(null, {
+    status: 404,
+    statusText: "Not found",
+  });
+}
+---
+
+<CasesLayout title={item.data.title} description={item.data.description}>
+  <div class="container flex-1">
+    <div
+      class="flex-1 md:grid md:grid-cols-[220px_1fr] md:gap-6 lg:grid-cols-[240px_1fr] lg:gap-10"
+    >
+      <aside
+        class="fixed top-18 z-30 hidden h-[calc(100vh-3.5rem)] w-full shrink-0 overflow-y-auto border-r py-6 pr-2 md:sticky md:block lg:py-8"
+      >
+        <DocsSidebarNav items={casesConfig.sidebarNav} />
+      </aside>
+      <main
+        class="relative py-6 lg:gap-10 lg:py-10 xl:grid xl:grid-cols-[1fr_300px]"
+      >
+        <div class="mx-auto w-full min-w-0">
+          <DocsPageHeader
+            heading={item.data.title}
+            text={item.data.description}
+          />
+
+          <Content components={MdxComponents} />
+
+          <hr class="my-4 md:my-6" />
+          <DocsPager slug={item.slug} />
+        </div>
+        <div class="hidden text-sm xl:block">
+          <div
+            class="sticky top-18 -mt-10 max-h-[calc(var(--vh)-4rem)] overflow-y-auto pt-10"
+          >
+            <DashboardTableOfContents toc={toc} client:load />
+          </div>
+        </div>
+      </main>
+    </div>
+  </div>
+</CasesLayout>
