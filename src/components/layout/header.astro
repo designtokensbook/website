@@ -3,6 +3,7 @@ import { siteConfig } from "@/config/site";
 import { cn } from "@/lib/utils";
 
 import Icon from "astro-icon";
+import { ThemeToggle } from "../theme-toggle";
 
 type Props = {
   className?: string;
@@ -43,5 +44,7 @@ const { className } = Astro.props;
     </div>
 
     <slot name="right-header" />
+
+    <ThemeToggle client:idle />
   </div>
 </header>
