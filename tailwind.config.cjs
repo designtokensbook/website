@@ -31,32 +31,40 @@ module.exports = {
         foreground: "var(--foreground)",
         primary: {
           DEFAULT: "var(--primary)",
-          foreground: "var(--primary-foreground)"
+          foreground: "var(--primary-foreground)",
+        },
+        'primary-lighter': {
+          DEFAULT: "var(--primary-lighter)",
+          foreground: "var(--primary-lighter-foreground)",
         },
         secondary: {
           DEFAULT: "var(--secondary)",
-          foreground: "var(--secondary-foreground)"
+          foreground: "var(--secondary-foreground)",
+        },
+        'secondary-lighter': {
+          DEFAULT: "var(--secondary-lighter)",
+          foreground: "var(--secondary-lighter-foreground)",
         },
         destructive: {
           DEFAULT: "var(--destructive)",
-          foreground: "var(--destructive-foreground)"
+          foreground: "var(--destructive-foreground)",
         },
         muted: {
           DEFAULT: "var(--muted)",
-          foreground: "var(--muted-foreground)"
+          foreground: "var(--muted-foreground)",
         },
         accent: {
           DEFAULT: "var(--accent)",
-          foreground: "var(--accent-foreground)"
+          foreground: "var(--accent-foreground)",
         },
         popover: {
           DEFAULT: "var(--popover)",
-          foreground: "var(--popover-foreground)"
+          foreground: "var(--popover-foreground)",
         },
         card: {
           DEFAULT: "var(--card)",
-          foreground: "var(--card-foreground)"
-        }
+          foreground: "var(--card-foreground)",
+        },
       },
       borderRadius: {
         lg: "var(--radius)",
