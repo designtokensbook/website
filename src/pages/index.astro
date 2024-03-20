@@ -3,76 +3,24 @@ import { buttonVariants } from "@/components/ui/button";
 import MainLayout from "@/layouts/main-layout.astro";
 import { cn } from "@/lib/utils";
 import PhaseSection from "../components/phase";
-
-
-type phasesProps = {
-  id: string;
-  theme: string;
-  phases: string[];
-};
-
-const phases: phasesProps[] = [
-  {
-    id: "1",
-    theme: "ANALYSER LE(S) SYSTÈME(S)",
-    phases: [
-      "Phase 1 - Définir la marque et ses besoins : Comprendre le 'Pourquoi' de votre projet",
-      "Phase 2 - Faire l’inventaire des attributs et expressions de la marque : Identifier le 'Quoi'",
-      "Phase 3 - Explorer son environnement : Découvrir qui seront les acteurs clés",
-      "Phase 4 - Commencer à expérimenter : Créer vos premiers tokens de références",
-      "Phase 5 - Élaborer la stratégie de votre projet pilote : Séduire ses parties prenantes"
-    ]
-  },
-  {
-    id: "2",
-    theme: "CONSTRUIRE UNE PREMIÈRE VERSION DES DESIGN TOKENS",
-    phases: [
-      "Phase 6 - Analyser et identifier les modèles à suivre : S'inspirer pour mieux créer",
-      "Phase 7 - Implémenter les Tokens de référence dans Figma : Établir les fondations",
-      "Phase 8 - Intégrer les Tokens sémantiques dans la création de composants : L’étape clé",
-      "Phase 9 - Optimiser l’architecture globale : Maintenir une vue d’ensemble"
-    ]
-  },
-  {
-    id: "3",
-    theme: "PENSER USAGE POUR CRÉER L’ADOPTION",
-    phases: [
-      "Phase 10 - Documenter, collaborer et communiquer pour une adoption réussie",
-      "Phase 11 - Mettre en action avec les outils adaptés : Choisir les bons outils",
-      "Phase 12 - Intégrer dans les processus de production : Soigner son cycle de déploiement"
-    ]
-  },
-  {
-    id: "4",
-    theme: "AFFINER LE SYSTÈME POUR LIBÉRER TOUT LE POTENTIEL",
-    phases: [
-      "Phase 13 - Créer un thème global : Packager vos Design tokens",
-      "Phase 14 - Cartographier les Tokens pour factoriser : Rechercher la simplicité",
-      "Phase 15 - Ajouter un mode : Explorer l’option Dark Mode",
-      "Phase 16 - Intégrer les Tokens dans l’onboarding : Progresser par l’apprentissage",
-      "Phase 17 - Réfléchir aux différents modes : Aborder l’accessibilité"
-    ]
-  },
-  {
-    id: "5",
-    theme: "GRANDIR DANS LE SYSTÈME",
-    phases: [
-      "Phase 18 - Mesurer, piloter et adopter pour évoluer dans le système",
-      "Phase 19 - Définir une stratégie et communiquer : Maintenir le cap stratégique"
-    ]
-  }
-];
+import { phases } from "../data/phases";
 ---
 
 <MainLayout title="Design Tokens Book">
   <section class="space-y-6 pb-12 pt-16 lg:py-28">
-    <div class="container flex max-w-[64rem] md:flex-row flex-col items-center gap-4 md:gap-8 text-center">
+    <div
+      class="container flex max-w-[64rem] md:flex-row flex-col items-center gap-4 md:gap-8 text-center"
+    >
       <div>
-        <h1 class="font-heading text-4xl font-bold sm:text-5xl md:text-6xl lg:text-7xl !leading-[1.1] text-balance">
+        <h1
+          class="font-heading text-4xl font-bold sm:text-5xl md:text-6xl lg:text-7xl !leading-[1.1] text-balance"
+        >
           Lorem ipsum dolor sit amet, consectetur adipiscing elit
         </h1>
 
-        <p class="max-w-[42rem] leading-normal sm:text-xl sm:leading-8 text-balance">
+        <p
+          class="max-w-[42rem] leading-normal sm:text-xl sm:leading-8 text-balance"
+        >
           Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
           Tortor aliquam nulla facilisi cras fermentum. Sodales neque sodales ut
           etiam sit amet.
@@ -104,40 +52,47 @@ const phases: phasesProps[] = [
     id="Contenu"
     class="container space-y-6 bg-secondary-lighter py-8 dark:bg-transparent md:py-12 lg:py-24"
   >
-    <div class="mx-auto flex max-w-[58rem] flex-col items-center space-y-4 text-center">
+    <div
+      class="mx-auto flex max-w-[58rem] flex-col items-center space-y-4 text-center"
+    >
       <h2 class="font-heading text-3xl leading-[1.1] sm:text-3xl md:text-6xl">
         Contenu du livre
       </h2>
-      <p class="max-w-[85%] leading-normal text-muted-foreground sm:text-lg sm:leading-7 balance-text">
+      <p
+        class="max-w-[85%] leading-normal text-muted-foreground sm:text-lg sm:leading-7 balance-text"
+      >
         This project is a replication of Taxonomy using Astro v4 and shadcn/ui.
         Some features, such as authentication, subscriptions and API routes,
         have not been implemented yet.
       </p>
     </div>
-    <div class="mx-auto grid justify-center gap-20 sm:grid-cols-2 md:max-w-[64rem] md:grid-cols-2">
+    <div
+      class="mx-auto grid justify-center gap-20 sm:grid-cols-2 md:max-w-[64rem] md:grid-cols-2"
+    >
       <img src="contenu.svg" alt="contenu" class="" />
       <div>
         <ul class="overflow-hidden space-y-8 list-disc">
-          {phases.map((phase) => (
-            <li
-              class={`relative flex-1 ${phase.id <= (phases.length - 1).toString() ? "after:content-[''] after:w-0.5 after:h-full after:bg-foreground after:inline-block after:absolute after:top-10 after:left-5" : ""} lg:after:left-5`}
-            >
-              <a class="flex items-start font-medium w-full">
-                <span class="z-10 w-11 h-11 bg-primary border-foreground border-2 rounded-full flex justify-center items-center text-sm text-primary-foreground lg:w-10 lg:h-10">
-                  {phase.id}
-                </span>
-                <PhaseSection
-                  id={phase.id}
-                  theme={phase.theme}
-                  phases={phase.phases}
-                  client:load
-                />
-              </a>
-            </li>
-          ))}
+          {
+            phases.map((phase) => (
+              <li
+                class={`relative flex-1 ${phase.id <= (phases.length - 1).toString() ? "after:content-[''] after:w-0.5 after:h-full after:bg-foreground after:inline-block after:absolute after:top-10 after:left-5" : ""} lg:after:left-5`}
+              >
+                <a class="flex items-start font-medium w-full">
+                  <span class="z-10 w-11 h-11 bg-primary border-foreground border-2 rounded-full flex justify-center items-center text-sm text-primary-foreground lg:w-10 lg:h-10">
+                    {phase.id}
+                  </span>
+                  <PhaseSection
+                    id={phase.id}
+                    theme={phase.theme}
+                    phases={phase.phases}
+                    client:load
+                  />
+                </a>
+              </li>
+            ))
+          }
         </ul>
       </div>
     </div>
   </section>
-</MainLayout>;
----
+</MainLayout>; ---

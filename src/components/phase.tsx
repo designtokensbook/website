@@ -4,14 +4,10 @@ import {
 	AccordionItem,
 	AccordionTrigger,
 } from "@/components/ui/accordion"
+import type { Phase } from "@/types/phase"
 
-type phasesProps = {
-    id: string,
-    theme: string,
-    phases: string[]
-}
 
-export default function PhaseSection({id, theme, phases}: phasesProps ) {
+export default function PhaseSection({id, theme, phases}: Phase ) {
 	return (
 		<Accordion type="single" collapsible className="w-full">
 				<AccordionItem key={id} value={id}>
