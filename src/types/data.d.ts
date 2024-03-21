@@ -10,3 +10,10 @@ export type Tool = {
     imageSrc: string;
 };
   
+export type Rex = {
+    name: string;
+    userImage:string;
+    entrepriseImage: string;
+    description: string;
+};
+  

@@ -1,0 +1,27 @@
+---
+const { name, description, entrepriseImage, userImage } = Astro.props;
+---
+
+<div class="flex flex-col rotate-2">
+  <div
+    class="max-w-sm md:max-w-lg lg:max-w-xl xl:max-w-2xl bg-background border-2 border-black rounded-xl p-5 m-2 shadow-md shadow-muted-foreground"
+  >
+    <div class="flex flex-col">
+      <img
+        class="self-end max-w-28 min-h-8"
+        src={entrepriseImage}
+        alt="entreprise logo"
+      />
+
+      <div class="mb-5 flex items-center">
+        <img src={userImage} class="rounded-full" alt="user logo" />
+        <div class="ml-3">
+          <h3 class="font-semibold">{name}</h3>
+        </div>
+      </div>
+    </div>
+    <p class="mb-4">
+      {description}
+    </p>
+  </div>
+</div>
