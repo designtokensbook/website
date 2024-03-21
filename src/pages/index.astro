@@ -69,7 +69,7 @@ import { phases } from "../data/phases";
     <div
       class="mx-auto grid justify-center gap-20 sm:grid-cols-2 md:max-w-[64rem] md:grid-cols-2"
     >
-      <img src="contenu.svg" alt="contenu" class="" />
+      <img src="contenu.svg" alt="illustration-livre" />
       <div>
         <ul class="overflow-hidden space-y-8 list-disc">
           {
@@ -78,14 +78,14 @@ import { phases } from "../data/phases";
                 class={`relative flex-1 ${phase.id <= (phases.length - 1).toString() ? "after:content-[''] after:w-0.5 after:h-full after:bg-foreground after:inline-block after:absolute after:top-10 after:left-5" : ""} lg:after:left-5`}
               >
                 <a class="flex items-start font-medium w-full">
-                  <span class="z-10 w-11 h-11 bg-primary border-foreground border-2 rounded-full flex justify-center items-center text-sm text-primary-foreground lg:w-10 lg:h-10">
+                  <span class="z-10 w-12 h-11 bg-primary border-foreground border-2 rounded-full flex justify-center items-center text-sm text-primary-foreground lg:w-10 lg:h-10">
                     {phase.id}
                   </span>
                   <PhaseSection
                     id={phase.id}
                     theme={phase.theme}
                     phases={phase.phases}
-                    client:load
+                    client:only
                   />
                 </a>
               </li>
