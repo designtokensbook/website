@@ -4,7 +4,7 @@ import {
   AccordionItem,
   AccordionTrigger,
 } from "@/components/ui/accordion";
-import type { Phase } from "@/types/phase";
+import type { Phase } from "@/types/data";
 
 export default function PhaseSection({ id, theme, phases }: Phase) {
   return (

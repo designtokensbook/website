@@ -4,6 +4,9 @@ import MainLayout from "@/layouts/main-layout.astro";
 import { cn } from "@/lib/utils";
 import PhaseSection from "../components/phase";
 import { phases } from "../data/phases";
+import { tools } from "../data/tools";
+import ToolCard from "../components/cards/tool-card.astro";
+import type { Tool } from "@/types/data";
 ---
 
 <MainLayout title="Design Tokens Book">
@@ -113,112 +116,11 @@ import { phases } from "../data/phases";
     </div>
 
     <div class="flex flex-wrap justify-center mt-10">
-      <div class="p-4 max-w-sm">
-        <div
-          class="flex rounded-lg h-full bg-primary dark:bg-accent p-8 flex-col items-center text-center"
-        >
-          <img
-            class="w-32 h-32"
-            src="images/outils/specify.svg"
-            alt="Specify logo"
-          />
-
-          <div
-            class="flex flex-col justify-between flex-grow text-card-foreground"
-          >
-            <div class="font-bold text-xl mb-2">Specify</div>
-            <p class="text-base flex-grow: 1">
-              Lorem ipsum dolor sit amet, consectetur adipisicing elit.
-              Voluptatibus quia, nulla! Maiores et perferendis eaque,
-              exercitationem praesentium nihil.
-            </p>
-          </div>
-        </div>
-      </div>
-
-      <div class="p-4 max-w-sm">
-        <div
-          class="flex rounded-lg h-full bg-primary dark:bg-accent p-8 flex-col items-center text-center"
-        >
-          <img
-            class="w-32 h-32"
-            src="images/outils/style-dictionnary.svg"
-            alt="StyleDictionnary logo"
-          />
-
-          <div class="flex flex-col justify-between flex-grow">
-            <div class="font-bold text-xl mb-2">StyleDictionnary</div>
-            <p class="text-base flex-grow: 1">
-              Lorem ipsum dolor sit amet, consectetur adipisicing elit.
-              Voluptatibus quia, nulla! Maiores et perferendis eaque,
-              exercitationem praesentium nihil.
-            </p>
-          </div>
-        </div>
-      </div>
-
-      <div class="p-4 max-w-sm">
-        <div
-          class="flex rounded-lg h-full bg-primary dark:bg-accent p-8 flex-col items-center text-center"
-        >
-          <img
-            class="w-36 h-32"
-            src="images/outils/supernova.svg"
-            alt="Supernova logo"
-          />
-
-          <div class="flex flex-col justify-between flex-grow">
-            <div class="font-bold text-xl mb-2">Supernova</div>
-            <p class="text-base flex-grow: 1">
-              Lorem ipsum dolor sit amet, consectetur adipisicing elit.
-              Voluptatibus quia, nulla! Maiores et perferendis eaque,
-              exercitationem praesentium nihil.
-            </p>
-          </div>
-        </div>
-      </div>
-
-      <div class="p-4 max-w-sm">
-        <div
-          class="flex rounded-lg h-full bg-primary dark:bg-accent p-8 flex-col items-center text-center"
-        >
-          <img
-            class="w-32 h-32"
-            src="images/outils/tokens-studio.svg"
-            alt="Tokens studio logo"
-          />
-
-          <div class="flex flex-col justify-between flex-grow">
-            <div class="font-bold text-xl mb-2">StudioTokens</div>
-            <p class="text-base flex-grow: 1">
-              Lorem ipsum dolor sit amet, consectetur adipisicing elit.
-              Voluptatibus quia, nulla! Maiores et perferendis eaque,
-              exercitationem praesentium nihil.
-            </p>
-          </div>
-        </div>
-      </div>
-
-      <div class="p-4 max-w-sm">
-        <div
-          class="flex rounded-lg h-full bg-primary dark:bg-accent p-8 flex-col items-center text-center"
-        >
-          <img
-            class="w-32 h-32"
-            src="images/outils/zeroheight.svg"
-            alt="ZeroHeight logo"
-          />
-
-          <div class="flex flex-col justify-between flex-grow">
-            <div class="font-bold text-xl mb-2">ZeroHeight</div>
-            <p class="text-base flex-grow: 1">
-              Lorem ipsum dolor sit amet, consectetur adipisicing elit.
-              Voluptatibus quia, nulla! Maiores et perferendis eaque,
-              exercitationem praesentium nihil.
-            </p>
-          </div>
-        </div>
-      </div>
+      {
+        tools.map(({ title, description, imageSrc }: Tool) => (
+          <ToolCard title={title} description={description} image={imageSrc} />
+        ))
+      }
     </div>
   </section>
 </MainLayout>
