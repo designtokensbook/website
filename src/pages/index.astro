@@ -135,7 +135,7 @@ import RexCard from "../components/cards/rex-card.astro";
     </div>
   </section>
   <section
-    id="Outils"
+    id="outils"
     class="container space-y-12 bg-primary-lighter py-8 dark:bg-transparent md:py-12 lg:py-24"
   >
     <div class="mx-auto flex max-w-[58rem] flex-col space-y-4">
@@ -150,7 +150,6 @@ import RexCard from "../components/cards/rex-card.astro";
         have not been implemented yet.
       </p>
     </div>
-
     <div class="flex flex-wrap justify-center mt-10">
       {
         tools.map(({ title, description, imageSrc }: Tool) => (
@@ -159,7 +158,37 @@ import RexCard from "../components/cards/rex-card.astro";
       }
     </div>
   </section>
-
+  <section
+    id="workshops"
+    class="container space-y-12 bg-primary p-8 dark:bg-transparent md:py-12 lg:py-32"
+  >
+    <div class="flex mx-auto justify-center items-center max-w-[58rem]">
+      <div class="flex flex-col gap-4 md:gap-8">
+        <h2
+          class="font-heading text-3xl leading-[1.1] sm:text-3xl md:text-6xl flex flex-col"
+        >
+          Les ateliers
+        </h2>
+        <p>
+          Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
+          eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad
+          minim veniam, quis nostrud exercitation ullamco laboris nisi ut
+          aliquip ex ea commodo consequat. Duis aute irure dolor in
+          reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla
+          pariatur. Excepteur sint occaecat cupidatat non proident, sunt in
+          culpa qui officia deserunt mollit anim id est laborum.
+        </p>
+        <a
+          href=""
+          target="_blank"
+          class={`${cn(buttonVariants({ size: "lg", variant: "secondary" }))} w-fit mx-auto`}
+        >
+          En apprendre plus
+        </a>
+      </div>
+      <img src="/images/puzzle-piece.png" alt="Pièce de puzzle" />
+    </div>
+  </section>
   <section
     id="Rex"
     class="container space-y-12 bg-secondary-lighter py-8 dark:bg-transparent md:py-12 lg:py-24"
