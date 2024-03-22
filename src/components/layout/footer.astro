@@ -1,5 +1,7 @@
 ---
-import { cn } from "@/lib/utils"
+import { siteConfig } from "@/config/site";
+import { cn } from "@/lib/utils";
+import Icon from "astro-icon";
 
 type Props = {
   className?: string;
@@ -8,34 +10,38 @@ type Props = {
 const { className } = Astro.props;
 ---
 
-<footer class={cn(className)}>
-  <div
-    class="container flex flex-col items-center justify-between gap-4 py-10 md:h-24 md:flex-row md:py-0"
-  >
-    <div
-      class="flex flex-col items-center gap-4 px-8 md:flex-row md:gap-2 md:px-0"
-    >
-      <p class="text-center text-sm leading-loose md:text-left balance-text">
-        Built with{" "}
-        <a
-          href="https://astro.build/"
-          target="_blank"
-          rel="noreferrer"
-          class="font-medium underline underline-offset-4"
-        >
-          Astro
-        </a>
-        . Based on{" "}
-        <a
-          href="https://github.com/shadcn-ui/taxonomy"
-          target="_blank"
-          rel="noreferrer"
-          class="font-medium underline underline-offset-4"
-        >
-          shadcn-ui/taxonomy
-        </a>
-        .
-      </p>
+<footer class="rounded-lg shadow">
+  <div class="w-full max-w-screen-xl mx-auto p-4 md:py-8">
+    <div class="sm:flex sm:items-center sm:justify-between">
+      <a href="/" class="hidden items-center space-x-2 md:flex">
+        <Icon name="design-tokens" class="size-8" />
+        <span class="hidden font-bold sm:inline-block">
+          {siteConfig.name}
+        </span>
+      </a>
+
+      <ul
+        class="flex flex-wrap items-center mb-6 text-sm font-medium text-gray-500 sm:mb-0 dark:text-gray-400"
+      >
+        <li>
+          <a href="#" class="hover:underline me-4 md:me-6">About</a>
+        </li>
+        <li>
+          <a href="#" class="hover:underline me-4 md:me-6">Privacy Policy</a>
+        </li>
+        <li>
+          <a href="#" class="hover:underline me-4 md:me-6">Licensing</a>
+        </li>
+        <li>
+          <a href="#" class="hover:underline">Contact</a>
+        </li>
+      </ul>
     </div>
+    <hr class="my-6 border-gray-200 sm:mx-auto dark:border-gray-700 lg:my-8" />
+    <span class="block text-sm text-gray-500 sm:text-center dark:text-gray-400"
+      >© 2024 <a href="https://flowbite.com/" class="hover:underline"
+        >Design Tokens Book</a
+      >. All Rights Reserved.</span
+    >
   </div>
 </footer>
