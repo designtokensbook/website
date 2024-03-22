@@ -28,7 +28,6 @@ export function SheetMobileNav({
     <Sheet open={open} onOpenChange={setOpen}>
       <SheetTrigger asChild>
         <Button
-          variant="secondary"
           size="sm"
           className="mr-2 h-8 px-1.5 md:hidden"
         >

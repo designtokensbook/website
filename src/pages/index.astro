@@ -59,7 +59,7 @@ import Auteur from "../components/auteur.astro";
   </section>
   <section
     id="Contenu"
-    class="container space-y-12 bg-secondary-lighter py-8 dark:bg-transparent md:py-12 lg:py-24"
+    class="container space-y-12 bg-secondary-lighter py-8 md:py-12 lg:py-24"
   >
     <div
       class="mx-auto flex max-w-[58rem] flex-col items-center space-y-4 text-center"
@@ -68,7 +68,7 @@ import Auteur from "../components/auteur.astro";
         Contenu du livre
       </h2>
       <p
-        class="max-w-[85%] leading-normal text-muted-foreground sm:text-lg sm:leading-7 balance-text"
+        class="max-w-[85%] leading-normal sm:text-lg sm:leading-7 balance-text"
       >
         This project is a replication of Taxonomy using Astro v4 and shadcn/ui.
         Some features, such as authentication, subscriptions and API routes,
@@ -78,7 +78,11 @@ import Auteur from "../components/auteur.astro";
     <div
       class="mx-auto grid justify-center gap-20 sm:grid-cols-2 md:max-w-[64rem] md:grid-cols-2"
     >
-      <img src="images/contenu.svg" alt="illustration-livre" />
+      <img
+        src="images/contenu.svg"
+        alt="illustration-livre"
+        class="place-self-center"
+      />
       <div>
         <ul class="overflow-hidden space-y-8 list-disc">
           {
@@ -106,7 +110,7 @@ import Auteur from "../components/auteur.astro";
   </section>
   <section
     id="design-token-definition"
-    class="container space-y-12 bg-primary p-8 dark:bg-transparent md:py-12 lg:py-32"
+    class="container space-y-12 bg-primary text-primary-foreground p-8 md:py-12 lg:py-32"
   >
     <div
       class="flex mx-auto justify-center relative items-center max-w-[58rem]"
@@ -143,14 +147,14 @@ import Auteur from "../components/auteur.astro";
   </section>
   <section
     id="outils"
-    class="container space-y-12 bg-primary-lighter py-8 dark:bg-transparent md:py-12 lg:py-24"
+    class="container space-y-12 bg-primary-lighter py-8 md:py-12 lg:py-24"
   >
     <div class="mx-auto flex max-w-[58rem] flex-col space-y-4">
       <h2 class="font-heading text-3xl leading-[1.1] sm:text-3xl md:text-6xl">
         Outils
       </h2>
       <p
-        class="max-w-[85%] leading-normal text-muted-foreground sm:text-lg sm:leading-7 balance-text"
+        class="max-w-[85%] leading-normal sm:text-lg sm:leading-7 balance-text"
       >
         This project is a replication of Taxonomy using Astro v4 and shadcn/ui.
         Some features, such as authentication, subscriptions and API routes,
@@ -167,12 +171,12 @@ import Auteur from "../components/auteur.astro";
   </section>
   <section
     id="workshops"
-    class="container space-y-12 bg-primary p-8 dark:bg-transparent md:py-12 lg:py-32"
+    class="container space-y-12 bg-primary p-8 md:py-12 lg:py-32"
   >
     <div
       class="flex mx-auto justify-center relative items-center max-w-[58rem]"
     >
-      <div class="flex flex-col gap-4 md:gap-8">
+      <div class="flex flex-col gap-4 md:gap-8 text-primary-foreground">
         <h2
           class="font-heading text-3xl leading-[1.1] sm:text-3xl md:text-6xl flex flex-col"
         >

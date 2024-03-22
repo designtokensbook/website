@@ -14,7 +14,7 @@ export default function PhaseSection({ id, theme, phases }: Phase) {
         <AccordionContent>
           <ul className="list-disc pl-8">
             {phases.map((phase) => (
-              <li key={phase} className="text-muted-foreground mb-3">
+              <li key={phase} className="mb-3">
                 {phase}
               </li>
             ))}
