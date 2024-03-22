@@ -10,6 +10,7 @@ import ToolCard from "../components/cards/tool-card.astro";
 import type { Rex, Tool } from "../types/data";
 import RexCard from "../components/cards/rex-card.astro";
 import Auteur from "../components/auteur.astro";
+import FrontguysLogo from "../components/svg/frontguys-logo.astro";
 ---
 
 <MainLayout title="Design Tokens Book">
@@ -238,17 +239,20 @@ import Auteur from "../components/auteur.astro";
       }
     </div>
   </section>
-
   <section
     id="Rex"
-    class="container space-y-12 bg-primary-lighter py-8 dark:bg-transparent md:py-12 lg:py-24"
+    class="container space-y-12 bg-primary-lighter dark:bg-secondary py-8 md:py-12 lg:py-24"
   >
     <div class="mx-auto flex max-w-[58rem] flex-col space-y-4">
+      <div class="max-w-24 md:max-w-32 w-full h-auto flex self-end">
+        <FrontguysLogo />
+      </div>
+
       <h2 class="font-heading text-3xl leading-[1.1] sm:text-3xl md:text-6xl">
         Auteurs
       </h2>
       <p
-        class="max-w-[85%] leading-normal text-muted-foreground sm:text-lg sm:leading-7 balance-text"
+        class="max-w-[85%] leading-normal sm:text-lg sm:leading-7 balance-text"
       >
         This project is a replication of Taxonomy using Astro v4 and shadcn/ui.
         Some features, such as authentication, subscriptions and API routes,
