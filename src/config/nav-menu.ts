@@ -13,10 +13,9 @@ export const navMenuConfig: NavMenuConfig = {
         },
         {
           title: "Achetez le livre imprimé",
-          href: "https://amazon.fr",
+          href: "https://link.designtokensbook.com/buy",
           description: "Impression couleur premium, format 16x24 cmn sur Amazon.fr",
-          external: true,
-          disabled: true
+          external: true
         },
         {
           title: "Assistez aux meetups",
