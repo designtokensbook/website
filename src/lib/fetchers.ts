@@ -15,5 +15,5 @@ export async function getLinksByCategory(category: string) {
 }
 
 export async function getWorkshops() {
-  return (await getCollection("workshops")).filter((guide) => guide.data.published);
+  return (await getCollection("workshops")).filter((guide) => guide.data.published).sort((a,b) => a.data.index > b.data.index ? 1 : -1);
 }

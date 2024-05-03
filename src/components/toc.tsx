@@ -23,7 +23,7 @@ export function DashboardTableOfContents({ toc }: TocProps) {
 
   return (
     <div className="space-y-2">
-      <p className="font-medium">On This Page</p>
+      <p className="font-medium">Dans cette page</p>
       <Tree tree={toc} activeItem={activeHeading} />
     </div>
   );

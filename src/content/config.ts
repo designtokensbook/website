@@ -22,7 +22,7 @@ const workshops = defineCollection({
     title: z.string(),
     description: z.string(),
     published: z.boolean().default(true),
-    featured: z.boolean().default(false),
+    index: z.number().default(0),
   }),
 });
 
