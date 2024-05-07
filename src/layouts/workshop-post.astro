@@ -11,11 +11,11 @@ type Props = CollectionEntry<"workshops">;
 
 const workshop = Astro.props;
 const slug = workshop.slug;
-const { title, description } = workshop.data;
+const { title, description, canonical } = workshop.data;
 const toc = await getTableOfContents(workshop.body);
 ---
 
-<DocsLayout title={title} description={description}>
+<DocsLayout title={title} description={description} canonical={canonical}>
   <main
     class="container max-w-5xl py-6 lg:grid lg:grid-cols-[1fr_300px] lg:gap-10 lg:py-10 xl:gap-20"
   >

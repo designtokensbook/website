@@ -6,14 +6,14 @@ import { ViewTransitions } from "astro:transitions";
 interface Props {
   title: string;
   description?: string;
+  canonical?: string;
   image?: string;
 }
-
-const canonicalURL = new URL(Astro.url.pathname, Astro.site);
 
 const {
   title,
   description = siteConfig.description,
+  canonical = new URL(Astro.url.pathname, Astro.site).toString(),
   image = "/og.png",
 } = Astro.props;
 ---
@@ -34,7 +34,7 @@ const {
 />
 
 <!-- Canonical URL -->
-<link rel="canonical" href={canonicalURL} />
+<link rel="canonical" href={canonical} />
 
 <!-- Primary Meta Tags -->
 <title>{title}</title>

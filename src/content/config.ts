@@ -21,6 +21,7 @@ const workshops = defineCollection({
   schema: z.object({
     title: z.string(),
     description: z.string(),
+    canonical: z.string().optional(),
     published: z.boolean().default(true),
     index: z.number().default(0),
   }),
