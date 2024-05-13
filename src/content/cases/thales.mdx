@@ -1,10 +1,169 @@
 ---
-title: Todo
-description: This page is in progress.
+title: Rétrospective et vision
+description: Retour d’expérience sur les Design Tokens, par les designers et developpeurs de Thales
+#canonical: test
 ---
 
-<Callout icon="💡" type="info">
+## L’équipe
 
-This site is a work in progress. If you see dummy text on a page, it means we are still working on it.
+<section class="flex justify-center gap-8">
 
-</Callout>
+<span/>
+
+![](/cases/estelle-pelleterat-de-borde.png)
+**Estelle Pelleterat de Borde**<br/>
+*Design System Lead*
+
+![](/cases/edgar-lechaudel.png)
+**Edgar Lechaudel**<br/>
+*Lead Designer*
+
+</section>
+<section class="flex justify-center gap-8">
+
+<span/>
+![](/cases/benjamin-cherion.png)
+**Benjamin Cherion**<br/>
+*Tech Lead Full-Stack*
+
+
+![](/cases/jerome-collomp.png)
+**Jérôme Collomp**<br/>
+*Technical Lead*
+
+</section>
+
+
+## A propos de l’entreprise
+
+Thales est un leader technologique français spécialisé dans l’aérospatiale, la défense, la sécurité et la cybersécurité et fournit des systèmes aux agences gouvernementales, aux administrations, aux institutions, aux villes et aux entreprises.
+
+### Thales en quelques chiffres
+
+- Fournit 50% des solutions radiologiques dans le monde
+- Produit 2/3 des systèmes avioniques et de contrôles aériens au niveau mondial
+- Fournit des solutions de défense, sécurité et de protection des populations à 50 pays• Construit 75% des constellations de satellites connectant les personnes
+- Sécurise 80% des transactions mondiales par carte de crédit
+
+## Le Design System
+
+**Quantum** pour l’Excellence Digitale chez Thales. En 2021, une équipe dédiée a lancé avec succès le Design System Thales pour le Digital, nommé Quantum.
+Cette équipe est composée d’une core team de sept membres à plein temps (Design System Lead, Design Lead, Tech Lead, 2 front-end développeurs et 2 designers) et d’un réseau de contributeurs designers et développeurs opérant sous un modèle hybride.
+Cette approche stratégique est indispensable pour le déploiement généralisé du Design System au sein de l’organisation incluant 300 designers et 2000+ développeurs répartis dans plus de 30 pays. Le modèle en place permet de s’aligner précisément sur les spécifications commerciales de l’entreprise et de surmonter les défis dans un contexte complexe, comme la mise en œuvre d’un Design System à grande échelle au sein d’une organisation étendue desservant diverses industries.
+
+### Scope de Quantum
+
+1. **Design assets** : Fondations (standards de marque, le theming, la couleur, la typographie, les layouts, l’élévation, les bordures, l’iconographie), les composants, les templates, les patterns et les guidelines.
+2. **Software assets** : Packages de référence d’implémentation et de documentation basés sur une seule source de vérité Design, utilisant des tokens pour les principales technologies logicielles (CSS, Angular, React, Vue.js, web-components, PowerBI, et autres clients lourds).
+4. **Dev workbench** : Documentation de développement sur Docusaurus, Storybook & GitLab, JFrog Artifactory en tant que gestionnaire de packages,
+5. **Design à l’échelle de l’organisation** : Gestion de la communauté, stratégies de déploiement et de growth, modèle de contribution hybride, intégration des pratiques et normes d’Éco Design/ d’Accessibilité et enfin synergies entre les Design Systems Digital et Hardware Thales pour délivrer des expériences cross-plateformes fluides.
+
+### L’historique des Design Tokens
+
+#### Les prémices
+
+Les Design Tokens ont été adoptés dès l’initialisation du Design System en 2021. Une phase de recherche préliminaire, visant à étudier la méthode d’implémentation du Design System au global, a rapidement validé l’efficacité des Design Tokens pour aligner et coordonner les efforts de la core team pour le design et le développement.
+Depuis lors, chez Thales nous avons acté que les designers sont responsables de l’identité et de la signature Thales à travers le Design System. Dès leur implémentation, les Design Tokens ont été mis sous leur responsabilité, de la définition à la maintenance.
+
+Le top management Thales sponsorise et sécurise les financements autour du Design System pour nous permettre de travailler dans des conditions optimales afin d’implémenter le système dont le groupe Thales a vraiment besoin. L’ensemble des travaux menés s’appuient soit sur de la recherche utilisateur ou des ateliers de co-construction réalisés avec le réseau des contributeurs ou bien sur de la veille design, technique et Design System.
+
+Concernant l’adoption des Design Tokens, elle s’est matérialisée à la suite d’échanges au niveau core team faisant écho aux pratiques du single source of truth préconisé dans le cadre des Design Systems et de l’atomic design.
+L’intérêt des Design Tokens et la philosophie sous-jacente a facilement été démontrée par les développeurs de la core team qui prônaient également la philosophie atomique auprès des designers de l’équipe. Les Design Tokens devenaient alors une évidence pour notre démarche « design-to-dev » bout en bout. Pour les consommateurs du Design System, les Design Tokens se matérialisent par des fonctionnalités auxquelles ils étaient déjà habitués tels que les Styles Figma pour les designers ou encore les variables spécifiques à leur techno pour les développeurs.
+
+#### Concrètement
+
+Les designers gèrent les Design Tokens depuis Figma et les développeurs tirent profit de l’API Figma pour les récupérer et les injecter dans leur pipeline de développement sans manipulation manuelle intermédiaire.
+Les Design Tokens sont structurés sous forme de Frames, Layers Figma et organisés dans différentes pages et fichiers Figma sous forme de pair de type «clé/valeur» (fondations et composants selon le mode light ou dark).Les développeurs utilisent ensuite un script personnalisé pour récupérer et formater les Design Tokens dans des fichiers json prêts à être traités par Style Dictionary. Ce dernier gère ensuite la conversion des Design Tokens dans les différentes technologies supportées par le Design System.
+
+![](/cases/tales-design-tokens.png)
+<caption>Illustration des libraires de Design Tokens chez Thales</caption>
+
+L’implémentation des Design Tokens a été essentielle aussi bien pour l’initialisation mais surtout, pour la maintenance du Design System au cours du temps.
+
+Au sein de la core team les avantages ont été nombreux :
+- Un contrôle granulaire fin pour l’ensemble des attributs visuels.
+- Une gestion cohérente et efficace de la conception visuelle en factorisant les valeurs et décisions de style.
+- La création d’un langage commun entre les designers et développeurs de l’équipe.
+- L’expression des décisions de style dans un format agnostique applicable à tous les types de technologies.
+- L’établissement d’une source unique de vérité entre designers et développeurs.
+- D’aider à maintenir la cohérence visuelle grâce à des check côté dev.
+- De faciliter l’intégration d’un nouveau thème Dark 8 mois après le début de l’implémentation du Design System.
+- De réduire l’effort de maintenance et la dette côté design et développement.
+
+Plus globalement, pour faciliter la gestion et l’adoption des Design Tokens au sein de l’organisation, la core team a mené des actions de communication et a aussi cherché à guider les utilisateurs du système en normalisant certaines pratiques. Du côté des designers, l’usage des Styles Figma a été privilégié dès le début et conseillé auprès des utilisateurs par le biais de la documentation du Design System.
+Du côté des développeurs, un package Design Tokens a été publié sur le package manager Artifactory de Thales pour le mettre à disposition des équipes produit.
+Au-delà des efforts de la core team, la notion de Design Tokens reste un concept qui n’est pas toujours bien saisi par la communauté Thales. Nous nous efforçons donc d’accompagner systématiquement les équipes qui souhaitent commencer à manipuler les Design Tokens via une série de workshops.
+
+#### Prise de recul
+
+Ainsi, en 2022, nous avons souhaité prendre du recul sur nos standards de «design-to-dev» et souhaitions mener une phase d’audit pour améliorer la maintenance et la scalabilité du Design System. Mais aussi et surtout, apporter une réelle flexibilité et ainsi couvrir la grande variabilité des produits du portfolio Thales. Nous avons donc décidé de recruter un Design Lead au sein de la core team pour profiter de son expertise autour des standards «design-to-dev» et des Design Tokens. Le premier grand constat était évident, les Design Tokens avaient été mis en œuvre côté Design System en 2021 et, par conséquent, ils ne se basaient plus sur les meilleurs et derniers standards du marché.
+
+En complément et à la suite de campagnes de recherches utilisateurs menées en interne - et ce en capitalisant sur de nombreux retours utilisateurs - il est clair que l’infrastructure actuelle des Design Tokens en place chez Thales limite la capacité à couvrir les besoins récurrents et ceux à venir.
+
+### Les problématiques observées
+
+#### 1 - Nos composants Figma ne sont pas synchronisés avec les variables utilisées en développement.
+
+A l’époque où le Design System a démarré, les Variables Figma n’existaient pas. Seuls les Styles Figma étaient disponibles.Malheureusement, aucune connexion n’a été établie entre les variables des développeurs et la bibliothèque de Styles Figma. La source unique de vérité est donc rompue.
+
+#### 2 - Nos Design Tokens ne suivent pas de convention, de taxonomie ou de nomenclature claire.
+
+Le Design System ne fournit aucune ligne directrice sur la manière d’aborder, de structurer et de nommer les Design Tokens. Cela complique davantage la maintenance pour la core team et rend difficile la compréhension ainsi que la prédiction d’un langage de styling par les designers et les développeurs.
+
+#### 3 - Nos Design Tokens n’incluent pas de couche sémantique
+
+Les Foundation Tokens sont utilisés pour styliser les éléments de conception. Ils sont également utilisés pour créer des Component Tokens en tant que référence. Sans la couche sémantique, une multitude de problématiques sous-jacentes ont pu être identifiées :
+- L’expérience est fastidieuse pour les designers et les développeurs qui doivent décider quels Design Tokens utiliser pour des décisions de design spécifiques.
+- Le système en place de correspondance des couleurs est défaillant lorsque la thématisation est activée.
+- Le workflow de mise à jour peut produire des résultats inattendus dans les implémentations de conception et de développement (problèmes d’harmonie visuelle, d’accessibilité, ...).
+- La maintenance est pénible pour la core team qui doit gérer les thèmes et définir les décisions de style sans cadre logique (redondance et principe de factorisation des valeurs et décision de style compromis).
+
+#### 4 - Notre processus de gestion des Design Tokens est très manuel et restrictif
+
+Les Design Tokens sont créés manuellement dans Figma sans aucune assistance technique ni l’utilisation de fonctionnalités natives. Finalement, un effet de silos est induit par manque d’interface partagée où les designers et les développeurs pourraient construire et générer des Design Tokens à leur pleine capacité.
+
+#### 5 - L’implémentation de nos Design Tokens ne permet pas la configuration (thématisation avancée).
+
+La bibliothèque de composants est très rigide et ne couvre pas les différents cas d’utilisation courants en termes d’interface digitale que nous pouvons rencontrer chez Thales. L’impact est d’autant plus grand que la core team se retrouve dans une impasse lorsqu’elle souhaite faire évoluer et étendre le Design System au regard des besoins et attentes de ses utilisateurs.
+
+### Next step
+
+#### Les contraintes, vecteur d’une solution adaptée
+
+Chez Thales, les designers doivent régulièrement suivre des recommandations, respecter certaines obligations, s’adapter au contexte d’utilisation et d’intégration de l’application dans un contexte d’usage et des systèmes sous contraintes. Par exemple :
+- Intégrer et respecter des standards souvent en conflit avec le Design System de base : militaires (ex : OTAN), aviation civile ou normes avioniques (type cockpits).
+- Gérer l’internationalisation des solutions.
+- Concevoir une interface avec un branding spécifique.
+- Respecter les critères d’accessibilité et intégrer les pratiques d’Eco Design.
+- S’adapter aux multi-plateformes et aux technologies natives.
+- S’intégrer avec du multi-modal (voice, touch, generative AI, Virtual Reality et Augmented Reality).
+- S’intégrer dans un environnement phygital, alliant du digital sur les produits et équipements industriels (de type hardware) (ex : une radio militaire avec un écran et des interactions multi-modales).
+- Gérer des applications à haute densité d’informations et de données.
+- Traiter des données restreintes voire classifiées.
+
+Ces contraintes peuvent avoir un impact sur :
+- Le choix et l’application des couleurs sur les différents attributs visuels d’une interface.
+- Le choix des typographies et de leurs échelles.
+- La densité des espacements de base et des patterns d’interface.
+- Le choix des icônes.
+- Le choix de l’outil design (les projets à diffusion restreinte ou classifiés doivent être totalement isolés d’internet).
+
+#### La vision du future Token System
+
+Nous souhaitons offrir un Design System polyvalent permettant à tout projet digital d’adopter et d’appliquer le Thales Design System ; utiliser, synchroniser, configurer et étendre sont les maîtres-mots. Une partie de la solution pour atteindre ces objectifs consiste à intégrer un réel Token System au sein de notre Design System.
+Deux mantras guident notre stratégie d’implémentation pour ce Token System : portabilité et évolutivité. 
+Pour ce faire, le nouveau système devra être :
+1. **Agnostique** : Les Design Tokens sont gérés en dehors de tout outil de design (portabilité).
+2. **Intégré** : Les Design Tokens sont disponibles via les fonctions natives de n’importe quel outil de design (portabilité).
+3. **Configurable** : Le Token System peut couvrir les nombreuses typologies de projets digitaux de Thales et leur variabilité (évolutivité).
+4. **Extensible** : Les utilisateurs peuvent étendre le Token System tout en restant en phase avec le Design System (évolutivité).
+5. **Versionné** : Les Design Tokens suivent une approche de distribution gérée par version du design au développement (portabilité et évolutivité).
+
+## Take aways
+
+Notre chantier n’est encore qu’à ses débuts mais voici déjà 5 takeaways que nous pouvons vous partager :
+1. **Se résoudre à la vulgarisation** : Les Design Tokens restent un sujet de niche dont les concepts peuvent parfois être difficiles à comprendre selon la maturité des équipes. Pour favoriser la compréhension et l’adoption de ce nouveau paradigme, la vulgarisation et la modélisation des concepts sont indispensables.
+2. **Surmonter la « panique sémantique »** : La couche intermédiaire sémantique des Design Tokens est la plus utile mais aussi la plus complexe. Réaliser l’exercice de décomposition au niveau le plus élémentaire des exemples d’interfaces existantes avec nos utilisateurs nous a réellement aidé à décoder, cadrer et normer l’intention derrière nos décisions design.
+3. **Accepter le fossé technique** : Les Design Tokens ne sont pas qu’un outil à l’usage de l’équipe Design System. Nous pensons qu’il est essentiel de mettre à disposition les Design Tokens via les fonctionnalités natives des outils design utilisés et ce même s’ils restreignent encore beaucoup la capacité des Design Tokens à ce jour.
+4. **S’entourer pour mieux décider** : Nous avons créé un groupe communautaire rassemblant des designers et des développeurs intéressés par les Design Tokens et disposant d’un minimum de connaissances théoriques et pratiques sur le sujet. Au fil du temps, nous testons nos idées avec eux dans un processus itératif et incrémental permettant de rapidement confirmer et infirmer nos hypothèses.
+5. **Éviter de surévaluer la pertinence de l’IA** : D’un point de vue état de l’art, nous recommandons de faire attention à la synthèse et à la génération de données que proposent les outils d’IA. Ils peuvent aider à casser le syndrome de la page blanche mais les résultats restent encore peu fiables et peu pertinents à moins d’être précisément guidés en amont.

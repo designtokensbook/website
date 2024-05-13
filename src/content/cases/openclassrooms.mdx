@@ -1,0 +1,295 @@
+---
+title: De l’adoption à l’usage
+description: Retour d’expérience sur les Design Tokens, par la Design Ops et le Staff Frontend Engineer d’OpenClassrooms
+#canonical: test.com
+---
+
+## L’équipe
+
+<section class="flex justify-center gap-8">
+
+<span/>
+
+![](/cases/catherine-vallet.png)
+**Catherine Vallet**<br/>
+*Product Designer & Design Ops*
+
+![](/cases/christophe-de-canteloube.png)
+**Christophe de Canteloube**<br/>
+*Staff Frontend Engineer*
+
+</section>
+
+## A propos de l’entreprise
+
+La mission d’OpenClassrooms est de rendre l’éducation accessible. Nous sommes une école 100% en ligne qui permet à des milliers d’individus partout dans le monde de développer leurs compétences professionnelles et de se former aux métiers de demain. La priorité d’OpenClassrooms, c’est l’employabilité. Notre objectif et le critère de réussite que nous nous sommes donnés, c’est d’aider chaque année 500 000 étudiants OpenClassrooms à trouver un travail ou à évoluer dans leur carrière.
+
+### OpenClassrooms en quelques dates
+
+- 2018 : Pionnière en France, OpenClassrooms devient entreprise à mission, en amont de sa levée de fonds en série B de 60M$, et se dote d’un Comité de Mission l’année suivante.
+- 2021 : Obtention de la certification B Corp.Plus de 1700 magasins répartis dans 70 pays
+
+### OpenClassrooms en quelques chiffres
+
+- 600 cours en ligne / 50 parcours de formation
+- 2500 mentors
+- 1 500 entreprises clientes
+- Depuis janvier 2023, ce sont 350 000 personnes par mois qui se forment sur OpenClassrooms
+
+### Le Design System
+
+Classify est le design system d’OpenClassrooms. Les design tokens ont été mis en place par une équipe centralisée composée de Christophe de Canteloube, responsable de l’évolution et de l’utilisation du design system côté développement, et de Catherine Vallet, responsable de la mise en place et de la communication autour du design system côté design.
+
+## Poser les bases du projet “Tokens”
+
+### Avoir une vue d’ensemble des composants
+
+Par définition, les tokens ne vivent pas seuls, ils sont utilisés au sein de composants.
+Une des premières étapes a donc été un audit des composants existants utilisés sur les deux librairies dans le code, mis en parallèle avec les librairies design. Pour se faire, nous avons construit une “Status Table” sur Notion pour répertorier l’existant et mieux comprendre leurs composants et leurs usages.
+Dans cette “Status table”, nous avons toutes les informations (liens, ressources, benchmark, questions et conversations) et les états d’avancement concernant chacun des composants.
+
+![](/cases/openclassrooms-status-table.png)
+<caption>Status table - Vue principale pour les utilisateurs</caption>
+
+La status table nous a permis de :
+- Mettre en exergue les écarts entre le développement et le design
+- Prioriser et expliciter les décisions à prendre pour harmoniser les librairies de design et de développement (= gérer la dette)
+- Mieux comprendre comment et où sont utilisés les composants existants, et donc les tokens associés.
+- Donner plus de visibilité aux équipes sur les migrations à faire et associer les tâches Jira correspondantes
+
+ Évaluer la compréhension des styles par les designers
+
+Nous avons ensuite analysé les utilisations des styles de typographies et de
+couleurs du design system actuel et leur compréhension par les designers.
+Avant de faire une refonte des design tokens, nous avions des sémantiques
+plus ou moins génériques peu comprises et surtout mal utilisées par les
+designers. En effet, ils avaient tendance à utiliser la première couleur blanche,
+noire ou violette disponible dans la liste des styles, sans prendre en compte
+l’usage : marketing VS app, fond VS texte, etc
+
+![](/cases/openclassrooms-status-table-dev.png)
+<caption>Status table - Vue développeur</caption>
+
+- **brand.primary** était majoritairement utilisé pour le violet
+- **text.onContrasted** était majoritairement utilisé pour le blanc
+- **text.onDefault** était majoritairement utilisé pour le noir
+
+![](/cases/color-change-rebranding.png)
+<caption>Changement de couleur de fond après le rebranding et la mise à jour des styles.</caption>
+
+Ces mauvais choix de sémantiques dans les maquettes se sont révélés au moment du rebranding où la majorité des fonds blanc sont passés crème car le style **text.onContrasted** est passé de blanc 100% à une couleur crème.
+
+![](/cases/bad-text-semantic.png)
+<caption>Dû à la mauvaise utilisation de la sémantique texte = première couleur blanche disponible dans la liste</caption>
+
+## Établir une structure et nommer les tokens
+
+### Rationaliser ou élargir les tokens avec une nomenclature explicite
+
+<Callout  icon="💡" type="info">Afin de promouvoir l’usage des tokens et de s’assurer d’une bonne utilisation de ces derniers, il est important d’utiliser une nomenclature claire et explicite pour les nommer.</Callout>
+
+#### La nomenclature originale
+
+Chez OpenClassrooms nous avons choisi de suivre la nomenclature proposée
+[dans l’article de Nathan Curtis](https://medium.com/eightshapes-llc/naming-tokens-in-design-systems-9e86c7444676)
+
+![](/cases/nomenclature-nathan-curtis.png)
+
+#### Notre utilisation
+
+Afin de simplifier l’usage des tokens dans l’outil de design Figma et les librairies de développement, nous avons déplacé la colonne **catégorie** au début car nous avions déjà des tokens groupés par catégories comme les couleurs et les espacements.
+
+Cela permettait également de ne pas répéter le mot **color** dans la sémantique<br/>
+Avant : **color.form.field.color.border.focus**<br/>
+Après : **color.form.field.border.focus**
+
+![](/cases/nomenclature-rules.png)
+
+Certaines règles ont été mises en place avant d’assurer une nomenclature scalable et “mode-friendly” et que la librairie puisse évoluer en fonction des prochains usages :
+- Pour les tokens d’options
+    - Le nom est liée au code hexadécimal (ex: RoyalPurple, TropicalBlue)
+    - Si le code hexadécimal venait à changer le nom du token d’option changera
+
+![](/cases/tokens-shades.png)
+<caption>Tokens option - Purple shades - La liste de toutes les nuances de violets possibles avec leurs équivalents en dark mode</caption>
+
+![](/cases/tokens-options.png)
+
+- Pour les tokens de décisions
+    - Le nom attribué à chaque token est directement déterminé par son utilisation, sans aucune référence aux caractéristiques visuelles telles que la couleur, le thème, ou un rapport de luminosité.
+    - Le nom choisi doit rester strictement identique lors d’un rebranding ou d’un changement de thème (Light/Dark ou multi thème étudiant/professionnel)
+
+![](/cases/tokens-modes.png)
+
+<caption>Les tokens de décision ne changent pas en fonction du mode</caption>
+
+<Callout  icon="🥇" type="info">
+**Marqueur de succès**<br/>
+Aucune modification sémantique n’a dû être faite durant notre rebranding et la création du dark mode !
+</Callout>
+
+### Mettre en avant l’usage UX d’un token
+
+<Callout  icon="💡" type="info">
+On peut vite tomber dans l’écueil de vouloir créer des tokens pour des usages spécifiques à chaque composant existant.<br/>
+→ Pour assurer l’adoption des tokens, le challenge est donc de trouver le niveau d’abstraction sémantique pertinent.
+</Callout>
+ 
+Pour trouver le bon équilibre entre UX et maintenabilité, nous avons challengé l’existant sans coller parfaitement aux composants en place. Cela nous a permis de limiter les risques suivants et simplifier l’usage des tokens auprès des équipes :
+- Des tokens trop spécifiques et donc non-réutilisables pouvant nous forcer à en créer à chaque nouveau composant → ⚠ Formation à apporter en continu à chaque nouveau token
+- Une liste de tokens difficile à maintenir, avec un rationnel derrière chaque sémantique compliqué à justifier → ⚠ Mauvaise utilisation et donc adoption des tokens par les designers.
+
+Nous avons groupé les tokens en ensembles cohérents en terme d’usages et d’actions utilisateurs :
+- **interaction** → buttons, links, navigation, etc
+- **form** → label, fields, selection, helper, error text, etc
+- **layout** → surface, background, line
+- **progress** → learning asset, event, completion, etc
+
+Cela donne un cadre à chaque token et facilite la recherche sur Figma, et donc l’adoption.
+
+<section class="flex gap-8">
+<span/>
+![](/cases/progress-library.png)
+
+![](/cases/layout-library.png)
+</section>
+
+Pour des actions similaires côté utilisateur, nous avons fait abstraction de la forme du composant qui apportait peu à la nomenclature.
+- **button.enabled** et **link.enabled** → **interaction.enabled**
+
+Cela facilite la maintenance des tokens et l’adoption car un seul token (=
+interaction) est utilisé pour toute action de l’utilisateur en-dehors d’un
+formulaire ou d’une sélection.
+
+### Valider la sémantique
+
+<Callout  icon="💡" type="info">
+Afin que les tokens soient utilisés convenablement, il faut que la sémantique soit claire et explicite, sans visuel.
+
+Autrement dit, la nomenclature doit auto-porter son usage.
+</Callout>
+
+Afin de s’assurer que la sémantique choisie était compréhensible sans visuel associé, nous avons listé tous les tokens sur un document que nous avons fait relire à quelques personnes de l’équipe dont notre CTO et un développeur iOS, experts sur la sémantique.
+
+![](/cases/form-tokens.png)
+<caption>Liste des tokens qui nous a permis de valider la sémantique sans visuel</caption>
+
+## Mettre en place les tokens dans les librairies Figma
+
+<Callout  icon="💡" type="info">
+Une fois la sémantique validée, il est temps de mettre en place les changements dans les librairies Figma.
+</Callout>
+
+Après validation de la nomenclature et des sets de décisions, nous avions :
+- 256 tokens de couleurs (75 précédemment)
+- 36 tokens de typographies (56 précédemment)
+- 11 tokens de shadows (10 précédemment)
+- 9 tokens de radius (aucun précédemment)
+- 31 tokens de spacing (aucun précédemment)
+
+### Publier seulement les tokens utiles pour les designers
+
+Pour faciliter l’adoption et ne pas inonder les designers d’options dans leurs maquettes, nous avons choisi de **ne pas publier tous les tokens** sur Figma.
+
+En effet certains tokens de couleurs, de radius et de spacings sont exclusivement réservés à des composants Core :
+- **color.form.input** : couleur du texte d’input d’un champs de saisie.
+- **color.chip.disclose.background** : couleur de fond des chips
+- **radius.button** : radius des boutons
+- **spacing.buttons.gap** : gap entre les buttons
+- etc
+
+Ne pas les publier permet de ne pas les afficher dans le panel utilisé par les designers et donc d’alléger leur charge cognitive au moment de choisir un token. In fine, cela limite les mauvaises utilisations de ces derniers.
+
+Ils sont intégrés directement dans leurs composants et sont visibles dans les instances utilisées par les maquettes pour que les développeurs puissent facilement les retrouver.
+
+### Forcer l’usage UX de certains tokens
+
+Pour éviter les mauvais usages du violet OpenClassrooms mentionnés plus haut, nous avons choisi de ne pas publier les couleurs de Brand. Ces couleurs sont seulement utilisées pour les logos.
+
+Désormais, pour que les designers utilisent la couleur violet, ils doivent choisir entre des sémantiques plus précises et correspondant mieux à des cas d’usage UX.
+
+Nous avons donc gagné en cohérence d’usage sur la plateforme et guidé les designers vers une meilleure adoption des tokens dans leurs maquettes. Cela permet également de faire remonter plus facilement les besoins de création ou d’ajustements de tokens (= le fameux test d’absence).
+
+Avec la fonctionnalité des variables sur Figma, nous avons pu aller plus loin et configurer chaque token plus précisément pour guider les designers dans le bon usage de ces derniers.
+
+![](/cases/color-scoping.png)
+
+Les tokens de couleurs de texte ne peuvent être désormais utilisés que sur des éléments textuels dans les maquettes. Pour tout autre forme (shape, outline), ils sont cachés dans la liste.
+
+![](/cases/figma-usage.png)
+
+## Prise de recul
+
+Pour conclure sur cette première partie, prendre du recul et avoir une vision globale des composants de la plateforme nous a permis de mettre en place une structure efficace et claire de tokens. Nous avons mieux compris les usages actuels des styles pour les rationaliser et les nommer.
+Une fois la structure posée, la mise en place opérationnelle peut prendre plus ou moins de temps selon la bonne organisation des librairies de design et de développement.
+Deux ans plus tard, nous n’avons pas eu besoin de revenir sur leurs noms.
+Nous avons même réussi à mettre en place du dark mode
+
+## Seconde partie
+
+Dans cette partie, nous présentons ce que nous avons mis en place pour s’assurer d’une bonne compréhension et utilisation des tokens auprès des designers et développeurs. C’est un travail qui continue encore aujourd’hui car le suivi et la communication sont clé dans l’adoption des tokens (et du design system au global).
+
+## Communiquer et former les équipes aux tokens
+
+<Callout  icon="💡" type="info">
+Enfin, pour s’assurer d’une bonne compréhension et adoption des équipes, il nous a été indispensable de communiquer fréquemment et avec exhaustivité sur toutes les nouveautés autour des tokens.
+</Callout>
+
+Côté design, nous avons une “Design Sharing” tous les mois qui nous permet de présenter régulièrement des évolutions des tokens : refonte avec une nouvelle sémantique, introduction des variables, du dark mode, etc.
+
+Nous faisons régulièrement des revues UI des maquettes pour m’assurer que les tokens soient bien utilisés. Dans le cas contraire, nous ajoutons des commentaires en expliquant le rationnel au designer pour continuer à le former.
+
+Nous avons également fait un atelier de formation avec tous les designers mais aussi des sessions individuelles pour mieux les guider sur l’usage des tokens (et du design system en général).
+
+Ces sessions ont toutes été bien accueillies par les équipes. Une piste
+d’amélioration partagée par les designers pour la formation continue est de
+régulièrement leur poser des questions sur Slack de manière récréative et
+courte (moins de 5 minutes par semaine).
+- ex : pop question = “quand utiliser le token interaction.enabled ?” avec des exemples d’utilisation dans la réponse).
+
+Cela n’a toujours pas été testé mais nous le gardons dans nos petits papiers !
+
+## Automatiser et booster l’adoption en continu
+
+<Callout  icon="💡" type="info">
+Automatiser au maximum le processus de création des tokens contribue à l’augmentation de l’adoption car diminue les frictions autour de leur utilisation et mise à jour.
+</Callout>
+
+### Automatiser le processus pour faciliter l’adoption côté développeurs
+
+Nous sommes partis du principe que la source de vérité des tokens était sur les librairies design. En 2022, nous avons donc construit un processus d’automatisation semi-manuel depuis la publication d’un token dans Figma.
+
+Ce processus nous permet de mettre à jour les tokens en production à moindre effort tout en respectant l’usage fait côté design et UX.
+1. Le designer créé ou met à jour un token dans une variable Figma. Puis, il exporte le JSON des variables dans la documentation Zeroheight.
+2. Dès que le développeur est prévenu du changement dans Zeroheight, il lance un script maison permettant de synchroniser les JSON présents sur Zeroheight et dans le code.
+3. Après revue, les changements sont publiés !
+
+Quand un développeur utilise une couleur :
+- Il copie la couleur utilisée dans la maquette depuis le panel d’inspection Figma
+- La colle dans son code
+- Remplace les **/** par des **.**
+
+Cette simplification a permis de garantir la bonne utilisation des tokens dans le code.
+
+Exemple : **interaction/onContrasted/hover** → **interaction.onContrasted.hover**
+
+### Donner les outils aux designers pour mieux les utiliser
+
+En 2023, nous avons créé un plugin qui permet aux designers de vérifier leurs
+maquettes avant passation aux développeurs.
+
+![](/cases/plugin-classify.png)
+<caption>Plugin interne - Classify - UI Quality check</caption>
+
+Ce plug-in permet de vérifier que toutes les couleurs et textes utilisent bien des variables et styles Figma. Les designers peuvent vérifier d’un coup d’oeil les tokens utilisés pour vérifier leur cohérence sémantique.
+
+Avec l’introduction des variables de spacing et de radius, ils seront également intégrés au plug-in pour aider les designers à harmoniser leurs espacements et adopter ces nouveaux tokens.
+
+Ce plug-in a été très bien accueilli par l’équipe, faisant gagner cohérence d’usage et productivité aux designers dans leurs maquettes. Il est un bon complément aux revues UI entre pairs.
+
+## Conclusion et prochaines étapes
+
+Afin de garantir une bonne adoption des tokens, leurs applications et sémantique doivent être pensées dès le début du projet de façon scalable et méthodique.
+Comme tout composant, les design tokens sont voués à évoluer avec notre produit, penser d’abord à leur usage nous a permis de les implémenter rapidement dans le design system existant et les promouvoir facilement auprès des équipes (design et développement).
+
+Désormais, nous continuons à communiquer et guider les équipes dans leur usage pour non seulement maintenir l’adoption, mais également les responsabiliser sur leur mise à jour (notamment avec le dark mode dans l’application iOS).

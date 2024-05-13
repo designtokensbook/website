@@ -33,7 +33,11 @@ if (!slug || !item) {
 }
 ---
 
-<CasesLayout title={item.data.title} description={item.data.description}>
+<CasesLayout
+  title={item.data.title}
+  description={item.data.description}
+  canonical={item.data.canonical}
+>
   <div class="container flex-1">
     <div
       class="flex-1 md:grid md:grid-cols-[220px_1fr] md:gap-6 lg:grid-cols-[240px_1fr] lg:gap-10"

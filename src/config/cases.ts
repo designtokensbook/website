@@ -13,39 +13,21 @@ export const casesConfig: CasesConfig = {
   ],
   sidebarNav: [
     {
-      title: "Cases",
+      title: "Retours d’experiences",
       items: [
         {
           title: "Thales",
           href: "/cases/thales/",
         },
+        {
+          title: "OpenClassrooms",
+          href: "/cases/openclassrooms/",
+        },
+        {
+          title: "Decathlon",
+          href: "/cases/decathlon/",
+        },
       ],
     },
-    // {
-    //   title: "Documentation",
-    //   items: [
-    //     {
-    //       title: "Introduction",
-    //       href: "/docs/documentation",
-    //     },
-    //     {
-    //       title: "Contentlayer",
-    //       href: "/docs/in-progress",
-    //       disabled: true,
-    //     },
-    //     {
-    //       title: "Components",
-    //       href: "/docs/documentation/components",
-    //     },
-    //     {
-    //       title: "Code Blocks",
-    //       href: "/docs/documentation/code-blocks",
-    //     },
-    //     {
-    //       title: "Style Guide",
-    //       href: "/docs/documentation/style-guide",
-    //     },
-    //   ],
-    // },
   ],
 }

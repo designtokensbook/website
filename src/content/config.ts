@@ -14,6 +14,7 @@ const cases = defineCollection({
   schema: z.object({
     title: z.string(),
     description: z.string(),
+    canonical: z.string().optional(),
   }),
 });
 

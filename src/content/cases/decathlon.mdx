@@ -1,0 +1,115 @@
+---
+title: Vecteur d’alignement cross-platform
+description: Retour d’expérience sur les Design Tokens, par la lead designer et le lead tech de DECATHLON
+#canonical: test
+---
+
+## L’équipe
+
+<section class="flex justify-center gap-8">
+
+<span/>
+
+![](/cases/sabrina-vigil.png)
+**Sabrina Vigil**<br/>
+*Staff Designer - Design Lead*
+
+![](/cases/laurent-thiebault.png)
+**Laurent Thiebault**<br/>
+*Engineering Manager - Tech Lead*
+
+</section>
+
+## A propos de l’entreprise
+
+DECATHLON, entreprise leader sur le marché du sport, regroupe deux activités : la création de produits sportifs et de services innovants, via la distribution en ligne et en magasins. Depuis 1976, l’entreprise œuvre à la réalisation d’une ambition permanente : innover dans tous les domaines pour rester le principal partenaire de jeu de tous les sportifs.
+
+### DECATHLON en quelques chiffres
+
+- 3 600 produits créés par an pour 80 sports
+- Plus de 1700 magasins répartis dans 70 pays
+- Entreprise « la plus admirée des Français » en 2019, 2020 et 2021 (sondage IFOP)
+- Plus de 100 000 collaborateurs
+- Plus de 5 000 collaborateurs et partenaires dans la branche “Digital”
+- 42% de réduction en émissions de CO2 absolues en 2030 et net zéro d'ici à 2050
+
+### Le Design System
+- Nouvelle identité et nouveau positionnement récent présenté en mars 2024
+- Design System consommé par plus de 180 produits (Web, Android & Apple)
+
+L’intégration des design tokens dans notre processus de conception a été une étape décisive qui a considérablement transformé notre façon de travailler chez Decathlon. Cela a touché divers aspects : de la collaboration entre designers et développeurs à l’automatisation des tâches en passant par la flexibilité et l’adaptabilité aux changements structurels comme par exemple, notre nouvelle identité récente. Dans ce retour d’expérience détaillé, nous allons revenir sur chacun de ces points pour vous faire part de nos enseignements.
+
+## Collaboration accrue entre designers et développeurs
+
+Avant d’adopter les design tokens, la collaboration entre notre équipe de design et nos développeurs n’était pas aussi fluide qu’elle aurait pu l’être. Les discussions sur la conception de composants étaient souvent fragmentées, et il était difficile de garantir la cohérence entre les maquettes et le code final.
+L’introduction des design tokens a radicalement changé cette dynamique.
+Désormais, avant de commencer à travailler sur un composant, nous organisons une réunion conjointe entre designers et développeurs. Cette réunion est l’occasion de définir en détail l’anatomie du composant, d’imaginer les différents tokens à appliquer à chaque propriété, d’identifier les namings (noms de variables), de discuter des spécificités (en fonction de la taille d’écran, par exemple) et d’évaluer l’accessibilité. Cette étape initiale favorise une compréhension commune du composant et de ses exigences.
+
+![](/cases/decathlon-quantity-stepper.png)
+
+De plus, nous examinons également le zoning du composant, en identifiant les emplacements spécifiques où les tokens seront utilisés, y compris les différents slots et sous-composants. Ainsi, notre flux de conception est désormais cohérent sur toute la chaîne, du design jusqu’au développement.
+
+## Benchmarking et adaptation des standards
+
+L’une des premières étapes de notre transition vers les design tokens a été le benchmarking approfondi des design systems existants. Cette démarche nous a permis de découvrir une communauté en pleine croissance, avec de plus en plus de bibliothèques open source et de ressources riches à explorer.
+Le benchmarking a été essentiel pour comprendre les meilleures pratiques du secteur et nous inspirer de ce qui fonctionne bien ailleurs.
+
+Cependant, il est important de noter que, malgré la richesse de ces ressources, il n’y a pas de solution universelle, chaque entreprise et projet ont leurs propres contraintes et besoins spécifiques. C’est pourquoi nous avons choisi de développer notre propre solution de design tokens, adaptée à notre contexte.
+
+L’aspect essentiel ici est la flexibilité. Les design tokens nous ont donné la liberté de définir nos propres standards tout en nous basant sur les enseignements tirés de nos benchmarks. Nous avons pu créer un système qui réponde précisément à nos exigences et qui évolue au fil du temps pour s’adapter aux nouvelles réalités de nos projets.
+
+## Automatisation pour la cohérence et l’efficacité
+
+L’automatisation a été l’une des pierres angulaires de notre approche des design tokens. L’objectif était de garantir la cohérence entre la conception et le développement tout en réduisant au maximum les tâches manuelles répétitives et sujettes à erreur. Cette automatisation a été mise en place à plusieurs niveaux de notre processus.
+
+Parmi l’ensemble du parc de solutions disponibles, nous avons opté pour Tokens Studio (anciennement Figma Tokens) comme notre outil principal pour la gestion des design tokens. L’un des principaux avantages de Tokens Studio réside dans son indépendance vis-à-vis des outils, ce qui garantit une source de vérité agnostique par rapport à toute évolution future des logiciels de conception et/ou des technologies.
+
+![](/cases/decathlon-architecture.png)
+ 
+Côté design, tout changement apporté à un token dans Tokens Studio est automatiquement synchronisé dans nos variables & composants sur Figma.
+Ainsi, une modification à un endroit a un impact immédiat sur toute la chaîne de conception. Cependant, pour garantir la cohérence, les vérifications sont effectuées via des Pull Requests.
+
+De plus, les fichiers JSON fournis par Tokens Studio sont soumis à un processus d’analyse, de linting et de validation grâce à une intégration continue. Cette rigueur garantit que nos tokens sont toujours conformes aux normes établies, ce qui évite les erreurs humaines et assure une cohérence constante.
+
+
+Côté développement, nous avons automatisé la génération de code à partir de nos design tokens. Nos développeurs disposent de référentiels dédiés pour chaque plateforme (Apple, Android, Web), contenant des générateurs de code spécifiques. Ainsi, lorsqu’un designer met à jour un token au sein d’une branche, puis merge la Pull Request associée, le code est automatiquement régénéré dans le bon format pour chaque plateforme, assurant ainsi une cohérence totale entre la conception et le développement.
+
+Cette automatisation a grandement amélioré notre efficacité, réduisant le temps consacré à des tâches manuelles fastidieuses et minimisant les erreurs potentielles.
+
+## Flexibilité et adaptabilité aux changements structurels
+
+Une autre qualité essentielle des design tokens réside dans la capacité à s’adapter aux changements structurels. Comme toute entreprise en croissance, nous avons vu notre portefeuille de produits et nos besoins évoluer avec le temps. Les design tokens se sont avérés être une solution flexible pour répondre à ces changements.
+
+Lorsque de nouveaux composants ou patterns émergent, nous pouvons rapidement créer de nouveaux tokens pour les prendre en charge sans perturber l’existant. L’architecture modulaire de notre système de design tokens en trois couches distinctes (core, semantic, component) facilite cette évolutivité. Nous pouvons ajouter de nouveaux tokens sans affecter les tokens existants, ce qui garantit que les composants existants conservent leur cohérence.
+
+De plus, si nous devons apporter des modifications visuelles, cela peut également être fait avec souplesse. Par exemple, si nous décidons de réorganiser nos tokens pour une meilleure organisation, les outils d’automatisation que nous avons mis en place s’adaptent rapidement aux modifications apportées à la source de vérité des tokens, garantissant que les changements sont propagés de manière uniforme à travers tous les projets.
+
+Cette adaptabilité aux changements structurels nous donne la confiance nécessaire pour faire évoluer notre Design System en fonction des besoins futurs, sans compromettre la cohérence.
+
+## Support et communication
+
+L’aspect humain du Design System est au cœur de notre démarche. Nous nous efforçons de maintenir une communication transparente avec toutes les parties prenantes et de fournir un soutien actif à nos équipes produits.
+
+Notre équipe organise des ateliers pour impliquer les designers, les développeurs et d’autres parties prenantes pour les accompagner dans leur intégration des éléments fournis par le Design System. Ces sessions de collaboration permettent de recueillir des idées, des retours d’expérience et des besoins spécifiques.
+
+Nous nous efforçons de toujours privilégier l’expérience designer et développeur, malgré certaines contraintes imposées par nos outils. Par exemple, nous proposons aux designers deux librairies distinctes : l’une comprenant les tokens essentiels présents dans la couche sémantique, et une autre, qui rassemble les milliers de tokens constituant le Design System, utiles aux développeurs. Cette approche nous permet d’offrir aux designers des librairies lisibles, conçues pour répondre à leurs besoins spécifiques et leurs usages du quotidien ; tout en conservant l’accès à l’ensemble des tokens du Design System lorsque c’est nécessaire.
+
+
+Nous utilisons également des enquêtes et des questionnaires pour recueillir les opinions de nos utilisateurs internes. Ce qui nous permet d’identifier des améliorations nécessaires et d’orienter nos efforts de développement.
+
+Nous avons mis en place une newsletter et des communications régulières pour tenir la communauté informée des mises à jour, des nouvelles fonctionnalités et des ressources disponibles dans le Design System. Cela permet de maintenir l’engagement et de s’assurer que tous les utilisateurs sont au courant des nouveautés.
+
+De plus, nous accordons une grande importance à la documentation. Nous fournissons des release notes détaillées pour chaque mise à jour du Design System, en suivant strictement le semantic versioning. Cette transparence garantit que les utilisateurs sont informés des changements et peuvent anticiper les éventuelles modifications nécessaires dans leurs projets.
+
+Enfin, nous avons également cherché à créer une culture de la mesure (metric-driven) en mettant en place un système de score card permettant aux équipes de Produit de s’auto-évaluer quant à leur niveau d’adoption du Design System. Nous organisons régulièrement des sessions pour aider ces équipes à maximiser l’utilisation du Design System et à atteindre leurs objectifs en matière d’identité visuelle.
+
+## Conclusion
+
+L’introduction des design tokens dans notre approche du Design System a été une étape transformative. Elle a renforcé la collaboration entre designers et développeurs, a permis une automatisation efficace et cohérente, a favorisé la flexibilité et l’adaptabilité aux changements structurels, et a renforcé la communication et le support au sein de notre organisation.
+
+Les outils sont en constante évolution, c’est pourquoi dans notre approche, nous avons fait le choix d’une stack qui nous permet de stocker la source de vérité au format JSON, offrant ainsi une interopérabilité et adaptabilité simplifiée en vue des évolutions futures dans ce domaine.
+
+Notre expérience montre que les design tokens ne sont pas seulement des outils techniques, mais qu’ils ont également un impact profondément humain.
+Ils renforcent la collaboration, améliorent la communication et facilitent l’adoption du Design System dans toute l’entreprise.
+
+Nous sommes convaincus que les design tokens sont un élément clé pour une conception et un développement efficaces mais aussi cohérents. Tout en laissant place à la créativité et à l’adaptation aux besoins spécifiques de chaque projet. Grâce à notre démarche centrée sur la collaboration, l’automatisation et le support, nous continuons à évoluer et à améliorer notre Design System pour répondre aux défis à venir.
