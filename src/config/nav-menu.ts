@@ -38,9 +38,7 @@ export const navMenuConfig: NavMenuConfig = {
         {
           title: "Ateliers",
           href: "/workshops",
-          description:
-            "Des ateliers pour mettre en place les tokens dans votre organisation.",
-            disabled: true
+          description: "Des ateliers pour mettre en place les tokens dans votre organisation.",
         },
         {
           title: "Retours d'experience",
@@ -60,11 +58,6 @@ export const navMenuConfig: NavMenuConfig = {
     },
   ],
   links: [
-    // {
-    //   title: "Glossaire",
-    //   href: "/docs/getting-started",
-    //   disabled: true
-    // },
     {
       title: "Les auteurs",
       href: "/authors",

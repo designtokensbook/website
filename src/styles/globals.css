@@ -148,7 +148,7 @@
   background-clip: text;
 }
 
-.rlc-container {
+a:has(.rlc-info) {
   width: 100%;
   max-width: 800px;
   margin: 0 auto 2rem;
@@ -164,16 +164,27 @@
   transition: background 200ms ease-in-out 0s, box-shadow 200ms ease-in-out 0s;
 }
 
-.rlc-container:has(.rlc-image-container) {
+a:has(.rlc-image-container) {
   display: flex;
   gap: 1rem;
 }
 
-.rlc-container:has(.rlc-image-container) .rlc-info {
+a:has(.rlc-image-container) .rlc-info {
   max-width: 60%;
 }
 
-.rlc-container:hover {
+/* workshop only selectors*/
+a[href^="https://www.figma.com/community"]:not(.rlc-container) .rlc-info {
+  max-width: 100%;
+}
+
+a[href^="https://www.figma.com/community"]:not(.rlc-container) .rlc-image-container {
+  display: none;
+}
+
+/* end of workshop only selectors*/
+
+a:has(.rlc-info):hover {
   box-shadow: 0 4px 5px 2px rgba(80, 80, 80, 0.2);
 }
 
@@ -217,7 +228,7 @@
     display: none;
   }
 
-  .rlc-container:has(.rlc-image-container) .rlc-info {
+  a:has(.rlc-image-container) .rlc-info {
     max-width: 100%;
   }
 }
