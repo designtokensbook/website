@@ -11,19 +11,16 @@ type Props = {
 
 export function getPagerForDoc(slug: string) {
   const flattenedLinks = [...flatten(casesConfig.sidebarNav)];
-  let activeIndex = flattenedLinks.findIndex(
-    (link) => `/docs/${slug}` === link?.href,
+  const activeIndex = Math.max(
+    flattenedLinks.findIndex(({ href }) => `/cases/${slug}/` === href),
+    0,
   );
-
-  activeIndex = Math.max(activeIndex, 0);
-  const prev = activeIndex !== 0 ? flattenedLinks[activeIndex - 1] : null;
-  const next =
-    activeIndex !== flattenedLinks.length - 1
-      ? flattenedLinks[activeIndex + 1]
-      : null;
   return {
-    prev,
-    next,
+    prev: activeIndex !== 0 ? flattenedLinks[activeIndex - 1] : null,
+    next:
+      activeIndex !== flattenedLinks.length - 1
+        ? flattenedLinks[activeIndex + 1]
+        : null,
   };
 }
 
