@@ -59,6 +59,10 @@ export const navMenuConfig: NavMenuConfig = {
   ],
   links: [
     {
+      title: "Les meetups",
+      href: "/meetups",
+    },
+    {
       title: "Les auteurs",
       href: "/authors",
     },
