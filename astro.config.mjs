@@ -5,6 +5,7 @@ import tailwind from "@astrojs/tailwind";
 import { defineConfig } from "astro/config";
 import vercel from '@astrojs/vercel/static';
 import rlc from 'remark-link-card';
+import rehypeExternalLinks from 'rehype-external-links';
 
 // https://astro.build/config
 export default defineConfig({
@@ -26,6 +27,7 @@ export default defineConfig({
   }),
   markdown: {
     remarkPlugins: [rlc],
+    rehypePlugins: [rehypeExternalLinks],
   },
 });
 
