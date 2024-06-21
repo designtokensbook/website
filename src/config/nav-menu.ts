@@ -49,7 +49,6 @@ export const navMenuConfig: NavMenuConfig = {
           href: "/cases",
           description:
             "Les retours d'experience de plusieurs équipes Design et Développement.",
-          disabled: true,
         },
         {
           title: "Points de vue",
